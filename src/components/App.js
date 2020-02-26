@@ -6,7 +6,7 @@ class App extends React.Component {
   }
 
   render() {
-    return <div>React BookStore App</div>;
+    return <div>Skeleton Folders and Redux Frameworks !!</div>;
   }
 }
 
