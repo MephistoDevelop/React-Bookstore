@@ -23,7 +23,7 @@ Technologies used:
 
 ## Live Demo
 
-[Live Demo Link]()
+[Live Demo Link](https://bookstore-mephistodevelop.herokuapp.com/)
 
 ## Getting Started
 
