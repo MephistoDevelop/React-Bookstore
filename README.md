@@ -8,7 +8,9 @@
 
 > React Book Store project.
 
-## Built With Javascript, React,redux Frameworks
+## Built With Javascript
+
+Technologies used:
 
 - Html,Css,JavaScript
 - React Library
