@@ -1,12 +1,15 @@
 import React from 'react';
+import BookList from './BooksList';
+import BooksForm from './BooksForm';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
-    return <div>Skeleton Folders and Redux Frameworks !!</div>;
+    return (
+      <div>
+        <BooksForm />
+        <BookList />
+      </div>
+    );
   }
 }
 
