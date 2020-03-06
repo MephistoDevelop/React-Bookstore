@@ -1,8 +1,9 @@
 import React from 'react';
+import Book from './Book';
 
 const BooksList = (props) => {
   return (
-    <div>
+    <div id='table-container'>
       <table>
         <tr>
           <th>Book ID</th>
@@ -10,9 +11,7 @@ const BooksList = (props) => {
           <th>Category</th>
         </tr>
       </table>
-      <td>1</td>
-      <td>My Book</td>
-      <td>Horror</td>
+      <Book />
     </div>
   );
 };

@@ -5,7 +5,7 @@ import BooksForm from './BooksForm';
 class App extends React.Component {
   render() {
     return (
-      <div>
+      <div id='crm-book'>
         <BooksForm />
         <BookList />
       </div>

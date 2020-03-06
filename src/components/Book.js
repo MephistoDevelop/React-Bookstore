@@ -1,15 +1,15 @@
-const reducer = (state, action) => {
-  const newState = { ...state };
-  switch (action.type) {
-    case 'ADD_BOOK':
-      break;
-    case 'DELETE_BOOK':
-      break;
-    case 'MODIFY_BOOK':
-      break;
-    default:
-      return newState;
-  }
-  return newState;
+import React from 'react';
+
+const Book = (book) => {
+  return (
+    <div class='td-container'>
+      <table>
+        <td>0</td>
+        <td>My Test Book</td>
+        <td>Horror</td>
+      </table>
+    </div>
+  );
 };
-export default reducer;
+
+export default Book;

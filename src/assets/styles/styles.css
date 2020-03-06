@@ -6,8 +6,32 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+table {
+  width: 100%;
+}
+tr {
+  width: 100%;
+  text-align: center;
+  background-color: rgba(77, 128, 228, 0.7);
+}
+th {
+  width: 33%;
+}
+td {
+  width: 33%;
+  text-align: center;
+  background-color: rgba(223, 246, 240, 0.8);
+}
+.td-container {
+  width: 100%;
+}
+#table-container {
+  margin: 2% 5%;
+}
+#crm-book {
+  border: 1px solid gray;
+  margin: 12%;
+}
+#form-title-container {
+  margin: 2% 3%;
 }
