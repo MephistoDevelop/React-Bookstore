@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+const newBook = {};
 const BooksForm = (props) => {
   const categories = [
     'Action',
@@ -39,7 +40,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    createBook: () => dispatch({ type: 'CREATE_BOOK' }),
+    createBook: () => dispatch({ type: 'CREATE_BOOK', params: newBook }),
     deleteBook: () => dispatch({ ype: 'DELETE_BOOK' })
   };
 };
