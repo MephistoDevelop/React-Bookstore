@@ -16,7 +16,7 @@ const BooksForm = () => {
           <input type='text' placeholder='Title example: Lords of the Rings' />
           <br />
           <select id='cbx-category'>
-            <option>Cathegory</option>
+            <option>Category</option>
             {cathegories.map((item) => (
               <option key={item} value={item}>
                 {item}
@@ -24,7 +24,7 @@ const BooksForm = () => {
             ))}
             ;
           </select>
-          <button>Submit</button>
+          <input value='submit' type='button' />
         </div>
       </form>
     </div>

@@ -4,9 +4,9 @@ const Book = (book) => {
   return (
     <div class='td-container'>
       <table>
-        <td>0</td>
-        <td>My Test Book</td>
-        <td>Horror</td>
+        <td>{book.id}</td>
+        <td>{book.title}</td>
+        <td>{book.category}</td>
       </table>
     </div>
   );
