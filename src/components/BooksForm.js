@@ -1,6 +1,8 @@
 import React from 'react';
-const BooksForm = () => {
-  const cathegories = [
+import { connect } from 'react-redux';
+
+const BooksForm = (props) => {
+  const categories = [
     'Action',
     'Biography',
     'History',
@@ -17,18 +19,29 @@ const BooksForm = () => {
           <br />
           <select id='cbx-category'>
             <option>Category</option>
-            {cathegories.map((item) => (
-              <option key={item} value={item}>
-                {item}
-              </option>
+            {categories.map((item) => (
+              <option value={item}>{item}</option>
             ))}
             ;
           </select>
-          <input value='submit' type='button' />
+          <input value='submit' type='button' onClick={props.createBook} />
         </div>
       </form>
     </div>
   );
 };
 
-export default BooksForm;
+const mapStateToProps = (state) => {
+  return {
+    books: state.books
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    createBook: () => dispatch({ type: 'CREATE_BOOK' }),
+    deleteBook: () => dispatch({ ype: 'DELETE_BOOK' })
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(BooksForm);

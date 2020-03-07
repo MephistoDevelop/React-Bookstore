@@ -3,6 +3,11 @@ import Book from './Book';
 
 const BooksList = (props) => {
   const newID = () => parseInt(Math.random() * 100, 10);
+  const mapProps = () => {
+    return books.books.map((item) => (
+      <Book id={item.id} title={item.title} category={item.category} />
+    ));
+  };
   const books = {
     books: [
       {
@@ -26,9 +31,7 @@ const BooksList = (props) => {
           <th>Category</th>
         </tr>
       </table>
-      {books.books.map((item) => (
-        <Book id={item.id} title={item.title} category={item.category} />
-      ))}
+      {mapProps()}
     </div>
   );
 };

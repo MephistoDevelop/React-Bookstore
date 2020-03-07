@@ -1,11 +1,10 @@
 const reducer = (state, action) => {
   const newState = { ...state };
   switch (action.type) {
-    case 'ADD_BOOK':
+    case 'CREATE_BOOK':
+      console.log('Created Book!!');
       break;
     case 'DELETE_BOOK':
-      break;
-    case 'MODIFY_BOOK':
       break;
     default:
       return newState;
