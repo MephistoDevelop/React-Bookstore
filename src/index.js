@@ -5,7 +5,7 @@ import './assets/styles/styles.css';
 
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import reducer from './store/reducers/books';
+import reducer from './reducers/index';
 
 const store = createStore(reducer);
 
