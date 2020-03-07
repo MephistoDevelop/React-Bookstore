@@ -1,23 +1,10 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
+import { connect } from 'react-redux';
 import Book from './Book';
 
-const BooksList = () => {
-  const newID = () => parseInt(Math.random() * 100, 10);
-  const books = {
-    books: [
-      {
-        id: newID(),
-        title: 'The lord of the rings',
-        category: 'Sci-Fi',
-      },
-      {
-        id: newID(),
-        title: 'Nightmare on Stret Elmer',
-        category: 'Horror',
-      },
-    ],
-  };
-  const mapProps = () => books.books.map((item) => (
+const BooksList = (state) => {
+  const mapProps = () => state.books.books.map((item) => (
     <Book key={item} id={item.id} title={item.title} category={item.category} />
   ));
 
@@ -35,4 +22,9 @@ const BooksList = () => {
   );
 };
 
-export default BooksList;
+const mapStateToProps = (state) => ({
+  books: state.books,
+});
+
+
+export default connect(mapStateToProps)(BooksList);
