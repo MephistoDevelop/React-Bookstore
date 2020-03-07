@@ -1,9 +1,10 @@
-const addBook = (book) => ({
+/* eslint-disable arrow-parens */
+const addBook = book => ({
   tipe: 'CREATE_BOOK',
   book,
 });
 
-const removeBook = (id) => ({
+const removeBook = id => ({
   type: 'DELETE_BOOK',
   id,
 });

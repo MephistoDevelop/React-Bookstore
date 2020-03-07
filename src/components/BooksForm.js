@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+/* eslint-disable arrow-parens */
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { connect } from 'react-redux';
