@@ -1,10 +1,10 @@
+/* eslint-disable react/forbid-prop-types */
 /* eslint-disable arrow-parens */
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { connect } from 'react-redux';
+import propTypes from 'prop-types';
 
-
-const newBook = {};
 const BooksForm = (props) => {
   const categories = [
     'Action',
@@ -30,6 +30,7 @@ const BooksForm = (props) => {
             ))}
             ;
           </select>
+
           <input value="submit" type="button" onClick={createBook} />
         </div>
       </form>
@@ -42,9 +43,12 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  createBook: () => dispatch({ type: 'CREATE_BOOK', params: newBook }),
+  createBook: () => dispatch({ type: 'CREATE_BOOK' }),
   deleteBook: () => dispatch({ type: 'DELETE_BOOK' }),
 });
 
+BooksForm.propTypes = {
+  createBook: propTypes.func.isRequired,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(BooksForm);

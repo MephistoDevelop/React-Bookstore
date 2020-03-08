@@ -1,10 +1,10 @@
+/* eslint-disable react/forbid-prop-types */
 /* eslint-disable guard-for-in */
-/* eslint-disable no-undef */
 /* eslint-disable no-restricted-syntax */
-/* eslint-disable arrow-parens */
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { connect } from 'react-redux';
+import propTypes from 'prop-types';
 import Book from '../components/Book';
 
 const BooksList = (props) => {
@@ -37,4 +37,7 @@ const mapStateToProps = (state) => ({
 });
 
 
+BooksList.propTypes = {
+  books: propTypes.object.isRequired,
+};
 export default connect(mapStateToProps)(BooksList);
