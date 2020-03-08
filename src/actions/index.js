@@ -1,6 +1,6 @@
 /* eslint-disable arrow-parens */
 const addBook = book => ({
-  tipe: 'CREATE_BOOK',
+  type: 'CREATE_BOOK',
   book,
 });
 
