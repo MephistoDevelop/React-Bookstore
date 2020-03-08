@@ -30,7 +30,6 @@ const BooksForm = (props) => {
             ))}
             ;
           </select>
-
           <input value="submit" type="button" onClick={createBook} />
         </div>
       </form>
