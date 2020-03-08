@@ -1,6 +1,7 @@
 /* eslint-disable react/forbid-prop-types */
 /* eslint-disable guard-for-in */
 /* eslint-disable no-restricted-syntax */
+/* eslint-disable arrow-parens */
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { connect } from 'react-redux';
