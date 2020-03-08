@@ -1,3 +1,6 @@
+/* eslint-disable guard-for-in */
+/* eslint-disable no-undef */
+/* eslint-disable no-restricted-syntax */
 /* eslint-disable arrow-parens */
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
@@ -6,10 +9,14 @@ import Book from '../components/Book';
 
 const BooksList = (props) => {
   const { books } = props;
-  console.log(`Ìm state on BookLists: ${JSON.stringify(books)}`);
-  // const mapProps = () => props.books.map((item) => (
-  //   <Book key={item} id={item.id} title={item.title} category={item.category} />
-  // ));
+  const mapProps = () => {
+    const object = [];
+    for (const key in books) {
+      const item = books[key];
+      object.push(<Book key={item} id={item.id} title={item.title} category={item.category} />);
+    }
+    return object;
+  };
 
   return (
     <div id="table-container">
@@ -20,7 +27,7 @@ const BooksList = (props) => {
           <th>Category</th>
         </tr>
       </table>
-      {/* {mapProps()} */}
+      {mapProps()}
     </div>
   );
 };
