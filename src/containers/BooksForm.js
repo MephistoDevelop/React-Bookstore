@@ -1,11 +1,11 @@
 /* eslint-disable react/forbid-prop-types */
 /* eslint-disable arrow-parens */
 /* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable */
 import React from 'react';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
 import newID from '../index';
-import books from '../reducers/books';
 import {addBook,deleteBook} from '../actions/actions';
 
 class BooksForm extends React.Component {
@@ -33,6 +33,7 @@ class BooksForm extends React.Component {
     title:value,
   });
 }
+
  handleSubmit = () => {
   const newBook =  {
     id:newID(),
