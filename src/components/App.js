@@ -1,13 +1,12 @@
 import React from 'react';
+import BookList from '../containers/BooksList';
+import BooksForm from '../containers/BooksForm';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return <div>Skeleton Folders and Redux Frameworks !!</div>;
-  }
-}
+const App = () => (
+  <div id="crm-book">
+    <BooksForm />
+    <BookList />
+  </div>
+);
 
 export default App;
