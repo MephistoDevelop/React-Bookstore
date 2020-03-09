@@ -4,6 +4,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
+import newID from '../index';
+import books from '../reducers/books';
 
 class BooksForm extends React.Component {
   constructor(props) {
@@ -26,14 +28,24 @@ class BooksForm extends React.Component {
 
   handleChange = (event) =>{
   const { value } = event.target;
-  console.log(`SOy value= ${value}`)
   this.setState({
     title:value,
   });
 }
  handleSubmit = () => {
-  alert('Hello Prro'+ JSON.stringify(this.state));
+
+  const newBook =  {
+    ID:newID(),
+    tile:this.state.title,
+    category: this.state.category
+   };
+   this.setState({
+     title:'',
+     category:''
+   });
+   alert('Hello Prro: LocalState=>'+ JSON.stringify(newBook));
 };
+
 handleChangeSelect = (event) =>{
   const select = document.getElementById('cbx-category');
   const name=select.options[select.selectedIndex].text;
@@ -41,6 +53,7 @@ handleChangeSelect = (event) =>{
     category:name
   });
 };
+
   render() {
     const { title, category, categories } = this.state;
     return (
