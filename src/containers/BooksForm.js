@@ -24,6 +24,9 @@ class BooksForm extends React.Component {
         'Sci-Fi',
       ],
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleChangeSelect = this.handleChangeSelect.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
