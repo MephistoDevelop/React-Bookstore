@@ -1,12 +1,12 @@
+/* eslint-disable import/no-cycle */
 /* eslint-disable react/forbid-prop-types */
 /* eslint-disable arrow-parens */
 /* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable */
 import React from 'react';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
 import newID from '../index';
-import {addBook,deleteBook} from '../actions/actions';
+import { addBook, deleteBook } from '../actions/actions';
 
 class BooksForm extends React.Component {
   constructor(props) {
@@ -14,7 +14,6 @@ class BooksForm extends React.Component {
     this.state = {
       title: '',
       category: '',
-      name:'',
       categories: [
         'Action',
         'Biography',
@@ -27,55 +26,64 @@ class BooksForm extends React.Component {
     };
   }
 
-  handleChange = (event) => {
-  const { value } = event.target;
-  this.setState({
-    title:value,
-  });
-}
+  handleChange(event) {
+    const { value } = event.target;
+    this.setState({
+      title: value,
+    });
+  }
 
- handleSubmit = () => {
-  const newBook =  {
-    id:newID(),
-    title:this.state.title,
-    category: this.state.category
-   };
+  handleSubmit() {
+    const { title, category } = this.state;
+    const { createBook } = this.props;
+    const newBook = {
+      id: newID(),
+      title,
+      category,
+    };
 
-   this.props.createBook(newBook);
-   this.setState({
-     title:'',
-     category:''
-   });
-};
+    createBook(newBook);
+    this.setState({
+      title: '',
+      category: '',
+    });
+  }
 
-handleChangeSelect = (event) =>{
-  const select = document.getElementById('cbx-category');
-  const name=select.options[select.selectedIndex].text;
-  this.setState({
-    category:name
-  });
-};
+  handleChangeSelect() {
+    const select = document.getElementById('cbx-category');
+    const name = select.options[select.selectedIndex].text;
+    this.setState({
+      category: name,
+    });
+  }
 
   render() {
-    const { title, category, categories } = this.state;
+    const { title, categories } = this.state;
     return (
       <div>
-        <form >
+        <form>
           <div id="form-title-container">
-            <input type="text" value={title} name={title} onChange={this.handleChange} placeholder="Title example: Lords of the Rings" />
+            <input
+              type="text"
+              value={title}
+              name={title}
+              onChange={this.handleChange}
+              placeholder="Title example: Lords of the Rings"
+            />
             <br />
             <select onChange={this.handleChangeSelect} id="cbx-category">
               <option>Category</option>
               {categories.map((item) => (
-                <option key={item} value={item}>{item}</option>
+                <option key={item} value={item}>
+                  {item}
+                </option>
               ))}
-                ;
+              ;
             </select>
-            <input type="button" value="Submit" onClick={this.handleSubmit}/>
+            <input type="button" value="Submit" onClick={this.handleSubmit} />
           </div>
         </form>
       </div>
-
     );
   }
 }
