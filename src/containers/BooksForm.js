@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import propTypes from 'prop-types';
 import newID from '../index';
 import books from '../reducers/books';
-
+import addBook from '../actions/actions';
 class BooksForm extends React.Component {
   constructor(props) {
     super(props);
@@ -33,17 +33,17 @@ class BooksForm extends React.Component {
   });
 }
  handleSubmit = () => {
-
   const newBook =  {
-    ID:newID(),
-    tile:this.state.title,
+    id:newID(),
+    title:this.state.title,
     category: this.state.category
    };
+
+   this.props.createBook(newBook);
    this.setState({
      title:'',
      category:''
    });
-   alert('Hello Prro: LocalState=>'+ JSON.stringify(newBook));
 };
 
 handleChangeSelect = (event) =>{
@@ -58,7 +58,7 @@ handleChangeSelect = (event) =>{
     const { title, category, categories } = this.state;
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form >
           <div id="form-title-container">
             <input type="text" value={title} name={title} onChange={this.handleChange} placeholder="Title example: Lords of the Rings" />
             <br />
@@ -69,7 +69,7 @@ handleChangeSelect = (event) =>{
               ))}
                 ;
             </select>
-            <button type="submit">Submit</button>
+            <input type="button" value="Submit" onClick={this.handleSubmit}/>
           </div>
         </form>
       </div>
@@ -83,7 +83,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  createBook: () => dispatch({ type: 'CREATE_BOOK' }),
+  createBook: (book) => dispatch(addBook(book)),
   deleteBook: () => dispatch({ type: 'DELETE_BOOK' }),
 });
 

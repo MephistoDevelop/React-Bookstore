@@ -10,6 +10,7 @@ import reducer from './reducers/index';
 
 const newID = () => parseInt(Math.random() * 100, 10);
 const initialState = {
+  book: [],
   books: [
     {
       id: newID(),
