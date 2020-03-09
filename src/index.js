@@ -11,7 +11,17 @@ import reducer from './reducers/index';
 
 const newID = () => parseInt(Math.random() * 100, 10);
 const initialState = {
-  book: [],
+  categories: [
+    'All',
+    'Action',
+    'Biography',
+    'History',
+    'Horror',
+    'Kids',
+    'Learning',
+    'Sci-Fi',
+  ],
+  filter: ['All'],
   books: [
     {
       id: 1,

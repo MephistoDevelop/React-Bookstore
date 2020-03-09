@@ -3,16 +3,21 @@ import React from 'react';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
 
-const FilterBox = (props) => {
+const CategoryFilter = (props) => {
   const { categories } = props;
-  console.log(`Categories: ${JSON.stringify(props)}`);
-  const options = () => {
 
+  const options = () => {
+    console.log(`Categories: ${JSON.stringify(props)}`);
+    return (categories.map((cat) => (
+      <option key={cat} name={cat}>
+        {' '}
+        {cat}
+      </option>
+    )));
   };
   return (
     <div>
       <select>
-        <option>All</option>
         {options()}
       </select>
     </div>
@@ -21,10 +26,12 @@ const FilterBox = (props) => {
 
 const mapStateToProps = (state) => ({
   books: state.books,
+  filter: state.filter,
+  categories: state.categories,
 });
 
-FilterBox.propTypes = {
+CategoryFilter.propTypes = {
   categories: propTypes.string.isRequired,
 };
 
-export default connect(mapStateToProps)(FilterBox);
+export default connect(mapStateToProps)(CategoryFilter);
