@@ -27,7 +27,7 @@ class BooksForm extends React.Component {
     };
   }
 
-  handleChange = (event) =>{
+  handleChange = (event) => {
   const { value } = event.target;
   this.setState({
     title:value,
