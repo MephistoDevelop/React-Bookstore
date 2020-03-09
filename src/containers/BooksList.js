@@ -26,6 +26,7 @@ const BooksList = (props) => {
           <th>Book ID</th>
           <th>Title</th>
           <th>Category</th>
+          <th>Action</th>
         </tr>
       </table>
       {mapProps()}

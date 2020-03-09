@@ -6,7 +6,8 @@ import { connect } from 'react-redux';
 import propTypes from 'prop-types';
 import newID from '../index';
 import books from '../reducers/books';
-import addBook from '../actions/actions';
+import {addBook,deleteBook} from '../actions/actions';
+
 class BooksForm extends React.Component {
   constructor(props) {
     super(props);
@@ -84,7 +85,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   createBook: (book) => dispatch(addBook(book)),
-  deleteBook: () => dispatch({ type: 'DELETE_BOOK' }),
+  deleteBook: (book) => dispatch(deleteBook(book)),
 });
 
 BooksForm.propTypes = {

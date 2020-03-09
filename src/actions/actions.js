@@ -3,4 +3,9 @@ const addBook = (book) => ({
   book,
 });
 
-export default addBook;
+const deleteBook = (id) => ({
+  type: 'DELETE_BOOK',
+  id,
+});
+
+export { addBook, deleteBook };

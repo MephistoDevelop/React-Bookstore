@@ -13,7 +13,7 @@ const initialState = {
   book: [],
   books: [
     {
-      id: newID(),
+      id: 1,
       title: 'The lord of the rings',
       category: 'Sci-Fi',
     },

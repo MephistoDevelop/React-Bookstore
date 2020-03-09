@@ -10,10 +10,10 @@ const books = (state = [], action) => {
       newState.push(action.book);
       return newState;
     case 'DELETE_BOOK':
-      break;
+      console.log(`Deleted ID:${action.id}  ${newState.filter((book) => action.id !== book.id)}`);
+      return [...newState.filter((book) => action.id !== book.id)];
     default:
       return newState;
   }
-  return newState;
 };
 export default books;
