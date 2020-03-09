@@ -1,5 +1,6 @@
 /* eslint-disable no-case-declarations */
 /* eslint-disable import/no-cycle */
+/* eslint-disable arrow-parens */
 
 const books = (state = [], action) => {
   const newState = [...state];

@@ -1,3 +1,4 @@
+/* eslint-disable arrow-parens */
 const addBook = (book) => ({
   type: 'CREATE_BOOK',
   book,
