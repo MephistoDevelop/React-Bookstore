@@ -15,9 +15,16 @@ const CategoryFilter = (props) => {
       </option>
     )));
   };
+
+  const handleChange = (event) => {
+    const cbx = this;
+    // const categoryName = cbx.options[cbx.selectedIndex].text;
+    console.log(cbx);
+  };
+
   return (
     <div>
-      <select>
+      <select id="cbx-category" onChange={handleChange()}>
         {options()}
       </select>
     </div>

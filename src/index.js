@@ -3,6 +3,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
+import { devToolsEnhancer } from 'redux-devtools-extension';
 import ReactDOM from 'react-dom';
 import App from './components/App';
 import './assets/styles/styles.css';
@@ -40,7 +41,8 @@ const initialState = {
     },
   ],
 };
-const store = createStore(reducer, initialState);
+
+const store = createStore(reducer, initialState, devToolsEnhancer(initialState));
 
 ReactDOM.render(
   <Provider store={store}>
