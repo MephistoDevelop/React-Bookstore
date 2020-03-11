@@ -1,3 +1,4 @@
+/* eslint-disable react/forbid-prop-types */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable arrow-parens */
 import React from 'react';
@@ -52,7 +53,7 @@ const mapDistpatchToProps = (dispatch) => ({
   changeFilter: (category) => dispatch(changeCategory(category)),
 });
 CategoryFilter.propTypes = {
-  categories: propTypes.string.isRequired,
+  categories: propTypes.array.isRequired,
   changeFilter: propTypes.func.isRequired,
 };
 

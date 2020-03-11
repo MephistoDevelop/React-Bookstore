@@ -24,9 +24,13 @@ td {
   background-color: rgba(223, 246, 240, 0.8);
 }
 .td-container {
+
   display: flex;
   width: 100%;
   align-items: center;
+  padding: 1.5% 0;
+border-bottom: 3px solid
+rgba(119,155,252,0.7);
 }
 #table-container {
   margin: 2% 5%;
@@ -47,7 +51,7 @@ justify-content: center;
 #navbar-container{
   box-shadow: 1px 1px 20px 2px #888;
   display: flex;
-  background-color: rgba(220, 214, 247, 1);
+  background-color: rgba(200, 210, 250, 1);
   align-items: center;
   justify-content: center;
 }
@@ -89,6 +93,14 @@ font-size: 17px;
   gray;
 }
 #cbx-category{
+  background-color: rgba(228, 225, 255,0.8);
+  border:2px solid rgba(244, 238, 255, 1);
+  width: 150px;
+  color:rgba(0,100,255,0.7);
+font-weight: 600;
+text-align: center;;
+}
+#cbx-category-form{
   background-color: rgba(228, 225, 255,0.8);
   border:2px solid rgba(244, 238, 255, 1);
   width: 150px;
@@ -209,7 +221,7 @@ font-weight: 700;
   border-right: 0;
   -webkit-transform-origin: center right;
   transform-origin: center right;
-  animation: loading-1 1.8s linear forwards;
+  /* animation: loading-1 1.8s linear forwards; */
 }
 .progress .progress-value{
   width: 90%;
@@ -240,27 +252,7 @@ left: 7%;
 .progress.blue .progress-bar{
   border-color: #049dff;
 }
-.progress.blue .progress-left .progress-bar{
-  animation: loading-2 1.5s linear forwards 1.8s;
-}
-.progress.yellow .progress-bar{
-  border-color: #fdba04;
-}
-.progress.yellow .progress-left .progress-bar{
-  animation: loading-3 1s linear forwards 1.8s;
-}
-.progress.pink .progress-bar{
-  border-color: #ed687c;
-}
-.progress.pink .progress-left .progress-bar{
-  animation: loading-4 0.4s linear forwards 1.8s;
-}
-.progress.green .progress-bar{
-  border-color: #1abc9c;
-}
-.progress.green .progress-left .progress-bar{
-  animation: loading-5 1.2s linear forwards 1.8s;
-}
+
 @keyframes loading-1{
   0%{
       -webkit-transform: rotate(0deg);
@@ -313,4 +305,26 @@ left: 7%;
 }
 @media only screen and (max-width: 990px){
   .progress{ margin-bottom: 20px; }
+}
+.category-text{
+  color:gray;
+  font-size: 12px;
+  font-weight: 500;
+}
+.title-text{
+  color:black;
+  font-size: 20px;
+  font-weight: 900;
+  font-style: italic;
+}
+.author-text{
+  color:rgba(0,0,255,0.4);
+  font-size: 14px;
+  font-weight: 900;
+  font-style: itali
+}
+.btn-container{
+  width: 33.3%;
+  display: flex;
+  justify-content: center;
 }

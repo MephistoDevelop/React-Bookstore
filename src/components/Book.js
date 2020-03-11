@@ -8,19 +8,22 @@ import ReadProgress from './ReadProgress';
 
 const Book = (props) => {
   const {
-    id, title, category, deleteBook,
+    id, title, category, deleteBook, author,
   } = props;
 
   return (
     <div className="td-container">
       <div className="content">
-        <p>{id}</p>
-        <p>{title}</p>
-        <p>{category}</p>
+        <p className="category-text">{category}</p>
+        <p className="title-text">{title}</p>
+        <p className="author-text">{author}</p>
+
+
       </div>
       <ReadProgress />
-      <div className="btn"><input className="btn" type="button" name={`bookid${id}`} value="Delete" onClick={() => deleteBook(id)} /></div>
-
+      <div className="btn-container">
+        <input className="btn" type="button" name={`bookid${id}`} value="Delete" onClick={() => deleteBook(id)} />
+      </div>
     </div>
   );
 };
@@ -33,6 +36,7 @@ const mapDispatchToProps = (dispatch) => ({
 Book.propTypes = {
   id: propTypes.number.isRequired,
   title: propTypes.string.isRequired,
+  author: propTypes.string.isRequired,
   category: propTypes.string.isRequired,
   deleteBook: propTypes.func.isRequired,
 };

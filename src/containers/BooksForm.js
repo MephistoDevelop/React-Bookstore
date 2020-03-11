@@ -27,41 +27,56 @@ class BooksForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleChangeSelect = this.handleChangeSelect.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChangeAuthor = this.handleChangeAuthor.bind(this);
+  }
+
+  handleChangeAuthor(event) {
+    const { value } = event.target;
+    this.setState({
+      author: value,
+    });
   }
 
   handleChange(event) {
     const { value } = event.target;
-    this.setState({
-      title: value,
-    });
+    if (value !== '') {
+      this.setState({
+        title: value,
+      });
+    }
   }
 
   handleSubmit() {
-    const { title, category } = this.state;
+    const { title, category, author } = this.state;
     const { createBook } = this.props;
-    const newBook = {
-      id: newID(),
-      title,
-      category,
-    };
-
-    createBook(newBook);
+    if (title !== '' && category !== '' && author !== '') {
+      const newBook = {
+        id: newID(),
+        title,
+        author,
+        category,
+      };
+      createBook(newBook);
+    }
+    console.log(`im created objec !!${JSON.stringify(this.state)} \n Props:${JSON.stringify(this.props)}`);
     this.setState({
       title: '',
       category: '',
+      author: '',
     });
   }
 
   handleChangeSelect() {
-    const select = document.getElementById('cbx-category');
+    const select = document.getElementById('cbx-category-form');
     const name = select.options[select.selectedIndex].text;
+
     this.setState({
       category: name,
     });
   }
 
   render() {
-    const { title, categories } = this.state;
+    const { title, categories, author } = this.state;
     return (
       <div id="form-container">
         <p id="form-title">ADD NEW BOOK</p>
@@ -75,7 +90,15 @@ class BooksForm extends React.Component {
               onChange={this.handleChange}
               placeholder="Title example: Lords of the Rings"
             />
-            <select className="form-cbx" onChange={this.handleChangeSelect} id="cbx-category">
+            <input
+              id="form-input"
+              type="text"
+              value={author}
+              name={author}
+              onChange={this.handleChangeAuthor}
+              placeholder="Author"
+            />
+            <select className="form-cbx" onChange={this.handleChangeSelect} id="cbx-category-form">
               <option>Category</option>
               {categories.map((item) => (
                 <option key={item} value={item}>

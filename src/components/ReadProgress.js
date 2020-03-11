@@ -9,7 +9,7 @@ const ReadProgress = (props) => (
       <span className="progress-right">
         <span className="progress-bar" />
       </span>
-      <div className="progress-value">90%</div>
+      <div className="progress-value">0%</div>
       <div className="progress-value-completed">Completed </div>
     </div>
   </div>

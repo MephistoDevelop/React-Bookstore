@@ -30,16 +30,19 @@ const initialState = {
       id: 1,
       title: 'The lord of the rings',
       category: 'Sci-Fi',
+      author: 'J.R.R. Tolkien',
     },
     {
       id: newID(),
       title: 'Nightmare on Stret Elmer',
       category: 'Horror',
+      author: 'Wes Craven',
     },
     {
       id: newID(),
-      title: 'Im Watching you',
+      title: 'Harry Potter',
       category: 'Action',
+      author: 'J.K. Rowling',
     },
   ],
 };

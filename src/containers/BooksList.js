@@ -13,14 +13,16 @@ import Book from '../components/Book';
 
 const BooksList = (props) => {
   const { books, filter } = props;
+
   const mapProps = () => {
     const object = [];
     for (const key in books) {
       const item = books[key];
+      console.log(`Item: ${JSON.stringify(item)} KEy:${key}`);
       if (item.category == filter) {
-        object.push(<Book key={item} id={item.id} title={item.title} category={item.category} />);
+        object.push(<Book id={item.id} title={item.title} category={item.category} author={item.author} />);
       } else if (filter == 'All') {
-        object.push(<Book key={item} id={item.id} title={item.title} category={item.category} />);
+        object.push(<Book id={item.id} title={item.title} category={item.category} author={item.author} />);
       }
     }
     return object;
@@ -40,7 +42,7 @@ const mapStateToProps = (state) => ({
 
 
 BooksList.propTypes = {
-  books: propTypes.object.isRequired,
+  books: propTypes.array.isRequired,
   filter: propTypes.array.isRequired,
 };
 export default connect(mapStateToProps)(BooksList);
