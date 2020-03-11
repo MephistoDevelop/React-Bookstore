@@ -55,7 +55,7 @@ rgba(0,100,255,0.7);
 font-size: 23px;
 }
 #profile-icon-container{
-  width: 59%;
+  width: 50%;
   display: flex;
   justify-content: end;
 
@@ -99,6 +99,7 @@ text-align: center;;
 .form-cbx{
     width: 35% !important;
     margin-right: 3%;
+
 }
 #form-btn{
   width: 20%;
@@ -122,4 +123,21 @@ font-weight: 700;
   font-size: 14px;
   font-weight: 600;
   border-radius: 1%;;
+}
+#form-btn:hover{
+  transform: scale(1.04);
+  transition: 0.2s;
+}
+.btn{
+  background-color:rgba(0,100,255,0.7);
+  border: none;
+  color:whitesmoke;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 1%;;
+  padding: 2% 20%;;
+}
+.btn:hover{
+  transform: scale(1.04);
+
 }

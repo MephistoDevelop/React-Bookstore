@@ -18,7 +18,7 @@ const Book = (props) => {
         <td>{title}</td>
         <td>{category}</td>
         <td>
-          <input type="button" name={`bookid${id}`} value="Delete" onClick={() => deleteBook(id)} />
+          <input className="btn" type="button" name={`bookid${id}`} value="Delete" onClick={() => deleteBook(id)} />
         </td>
       </table>
     </div>
