@@ -9,6 +9,7 @@ import App from './components/App';
 import './assets/styles/styles.css';
 import reducer from './reducers/index';
 import Navbar from './components/Navbar';
+import BooksForm from './containers/BooksForm';
 
 
 const newID = () => parseInt(Math.random() * 100, 10);
@@ -49,6 +50,7 @@ ReactDOM.render(
   <Provider store={store}>
     <Navbar />
     <App />
+    <BooksForm />
   </Provider>,
   document.getElementById('root'),
 );

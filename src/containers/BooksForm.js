@@ -63,18 +63,19 @@ class BooksForm extends React.Component {
   render() {
     const { title, categories } = this.state;
     return (
-      <div>
+      <div id="form-container">
+        <p id="form-title">ADD NEW BOOK</p>
         <form>
           <div id="form-title-container">
             <input
+              id="form-input"
               type="text"
               value={title}
               name={title}
               onChange={this.handleChange}
               placeholder="Title example: Lords of the Rings"
             />
-            <br />
-            <select onChange={this.handleChangeSelect} id="cbx-category">
+            <select className="form-cbx" onChange={this.handleChangeSelect} id="cbx-category">
               <option>Category</option>
               {categories.map((item) => (
                 <option key={item} value={item}>
@@ -83,7 +84,7 @@ class BooksForm extends React.Component {
               ))}
               ;
             </select>
-            <input type="button" value="Submit" onClick={this.handleSubmit} />
+            <input id="form-btn" type="button" value="Submit" onClick={this.handleSubmit} />
           </div>
         </form>
       </div>
