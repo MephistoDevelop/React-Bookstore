@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ReadProgress = (props) => (
+const ReadProgress = () => (
   <div className="progress-container">
     <div className="progress blue">
       <span className="progress-left">

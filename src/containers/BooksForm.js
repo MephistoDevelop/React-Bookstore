@@ -58,7 +58,6 @@ class BooksForm extends React.Component {
       };
       createBook(newBook);
     }
-    console.log(`im created objec !!${JSON.stringify(this.state)} \n Props:${JSON.stringify(this.props)}`);
     this.setState({
       title: '',
       category: '',

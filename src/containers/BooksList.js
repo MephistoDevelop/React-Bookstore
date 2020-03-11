@@ -18,7 +18,6 @@ const BooksList = (props) => {
     const object = [];
     for (const key in books) {
       const item = books[key];
-      console.log(`Item: ${JSON.stringify(item)} KEy:${key}`);
       if (item.category == filter) {
         object.push(<Book id={item.id} title={item.title} category={item.category} author={item.author} />);
       } else if (filter == 'All') {
