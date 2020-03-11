@@ -32,6 +32,8 @@ td {
   margin: 2% 5%;
 }
 #crm-book {
+  max-height: 450px;
+overflow: auto;
   border: 1px solid whitesmoke;
   margin: 2% 12%;
   box-shadow: 5px 5px 10px 2px #888;
@@ -145,7 +147,7 @@ font-weight: 700;
 .content{
   display: flex;
   flex-direction: column;
-  margin:0 10%;
+  width:33.3% !important;
 }
 .progress-container{
   margin:0 10%;;
@@ -213,14 +215,27 @@ font-weight: 700;
   width: 90%;
 height: 90%;
 border-radius: 50%;
-font-size: 24px;
+font-size: 15px;
 color:
 gray;
 line-height: 135px;
 text-align: center;
 position: absolute;
-top: -16%;
+top: -25%;
 left: 8%;
+}
+.progress .progress-value-completed{
+  width: 90%;
+height: 90%;
+border-radius: 50%;
+font-size: 13px;
+color:
+gray;
+line-height: 135px;
+text-align: center;
+position: absolute;
+top: -6%;
+left: 7%;
 }
 .progress.blue .progress-bar{
   border-color: #049dff;
