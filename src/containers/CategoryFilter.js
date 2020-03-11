@@ -2,6 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
+import { changeCategory } from '../actions/actions';
 
 class CategoryFilter extends React.Component {
   constructor(props) {
@@ -26,6 +27,7 @@ class CategoryFilter extends React.Component {
   handleChange(event) {
     const cbx = event.target;
     const categoryName = cbx.options[cbx.selectedIndex].text;
+    this.props.changeFilter(categoryName);
     console.log(`Soy cbx: ${categoryName}`);
   }
 
@@ -46,8 +48,12 @@ const mapStateToProps = (state) => ({
   categories: state.categories,
 });
 
+const mapDistpatchToProps = (dispatch) => ({
+  changeFilter: (category) => dispatch(changeCategory(category)),
+});
 CategoryFilter.propTypes = {
   categories: propTypes.string.isRequired,
 };
 
-export default connect(mapStateToProps)(CategoryFilter);
+
+export default connect(mapStateToProps, mapDistpatchToProps)(CategoryFilter);
