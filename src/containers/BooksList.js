@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+/* eslint-disable eqeqeq */
 /* eslint-disable react/forbid-prop-types */
 /* eslint-disable guard-for-in */
 /* eslint-disable no-restricted-syntax */
@@ -10,12 +12,12 @@ import Book from '../components/Book';
 import CategoryFilter from './CategoryFilter';
 
 const BooksList = (props) => {
-  const { books } = props;
+  const { books, filter } = props;
   const mapProps = () => {
     const object = [];
     for (const key in books) {
       const item = books[key];
-      object.push(<Book key={item} id={item.id} title={item.title} category={item.category} />);
+      if (item.category == filter) object.push(<Book key={item} id={item.id} title={item.title} category={item.category} />);
     }
     return object;
   };
@@ -38,10 +40,12 @@ const BooksList = (props) => {
 
 const mapStateToProps = (state) => ({
   books: state.books,
+  filter: state.filter,
 });
 
 
 BooksList.propTypes = {
   books: propTypes.object.isRequired,
+  filter: propTypes.array.isRequired,
 };
 export default connect(mapStateToProps)(BooksList);

@@ -15,7 +15,6 @@ class CategoryFilter extends React.Component {
 
   options() {
     const { categories } = this.props;
-    console.log(`Categories: ${JSON.stringify(this.props)}`);
     return (categories.map((cat) => (
       <option key={cat} name={cat}>
         {' '}
@@ -26,9 +25,9 @@ class CategoryFilter extends React.Component {
 
   handleChange(event) {
     const cbx = event.target;
+    const { changeFilter } = this.props;
     const categoryName = cbx.options[cbx.selectedIndex].text;
-    this.props.changeFilter(categoryName);
-    console.log(`Soy cbx: ${categoryName}`);
+    changeFilter(categoryName);
   }
 
   render() {
@@ -53,6 +52,7 @@ const mapDistpatchToProps = (dispatch) => ({
 });
 CategoryFilter.propTypes = {
   categories: propTypes.string.isRequired,
+  changeFilter: propTypes.func.isRequired,
 };
 
 
