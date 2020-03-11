@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { Provider } from 'react-redux';
@@ -10,9 +11,10 @@ import reducer from './reducers/index';
 
 const newID = () => parseInt(Math.random() * 100, 10);
 const initialState = {
+  book: [],
   books: [
     {
-      id: newID(),
+      id: 1,
       title: 'The lord of the rings',
       category: 'Sci-Fi',
     },
@@ -36,3 +38,5 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root'),
 );
+
+export default newID;

@@ -1,49 +1,100 @@
+/* eslint-disable import/no-cycle */
 /* eslint-disable react/forbid-prop-types */
 /* eslint-disable arrow-parens */
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
+import newID from '../index';
+import { addBook, deleteBook } from '../actions/actions';
 
-const BooksForm = (props) => {
-  const categories = [
-    'Action',
-    'Biography',
-    'History',
-    'Horror',
-    'Kids',
-    'Learning',
-    'Sci-Fi',
-  ];
+class BooksForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: '',
+      category: '',
+      categories: [
+        'Action',
+        'Biography',
+        'History',
+        'Horror',
+        'Kids',
+        'Learning',
+        'Sci-Fi',
+      ],
+    };
+  }
 
-  const { createBook } = props;
-  return (
-    <div>
-      <form>
-        <div id="form-title-container">
-          <input type="text" placeholder="Title example: Lords of the Rings" />
-          <br />
-          <select id="cbx-category">
-            <option>Category</option>
-            {categories.map((item) => (
-              <option key={item} value={item}>{item}</option>
-            ))}
-            ;
-          </select>
-          <input value="submit" type="button" onClick={createBook} />
-        </div>
-      </form>
-    </div>
-  );
-};
+  handleChange(event) {
+    const { value } = event.target;
+    this.setState({
+      title: value,
+    });
+  }
+
+  handleSubmit() {
+    const { title, category } = this.state;
+    const { createBook } = this.props;
+    const newBook = {
+      id: newID(),
+      title,
+      category,
+    };
+
+    createBook(newBook);
+    this.setState({
+      title: '',
+      category: '',
+    });
+  }
+
+  handleChangeSelect() {
+    const select = document.getElementById('cbx-category');
+    const name = select.options[select.selectedIndex].text;
+    this.setState({
+      category: name,
+    });
+  }
+
+  render() {
+    const { title, categories } = this.state;
+    return (
+      <div>
+        <form>
+          <div id="form-title-container">
+            <input
+              type="text"
+              value={title}
+              name={title}
+              onChange={this.handleChange}
+              placeholder="Title example: Lords of the Rings"
+            />
+            <br />
+            <select onChange={this.handleChangeSelect} id="cbx-category">
+              <option>Category</option>
+              {categories.map((item) => (
+                <option key={item} value={item}>
+                  {item}
+                </option>
+              ))}
+              ;
+            </select>
+            <input type="button" value="Submit" onClick={this.handleSubmit} />
+          </div>
+        </form>
+      </div>
+    );
+  }
+}
 
 const mapStateToProps = (state) => ({
   books: state.books,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  createBook: () => dispatch({ type: 'CREATE_BOOK' }),
-  deleteBook: () => dispatch({ type: 'DELETE_BOOK' }),
+  createBook: (book) => dispatch(addBook(book)),
+  deleteBook: (book) => dispatch(deleteBook(book)),
 });
 
 BooksForm.propTypes = {
