@@ -17,7 +17,11 @@ const BooksList = (props) => {
     const object = [];
     for (const key in books) {
       const item = books[key];
-      if (item.category == filter) object.push(<Book key={item} id={item.id} title={item.title} category={item.category} />);
+      if (item.category == filter) {
+        object.push(<Book key={item} id={item.id} title={item.title} category={item.category} />);
+      } else if (filter == 'All') {
+        object.push(<Book key={item} id={item.id} title={item.title} category={item.category} />);
+      }
     }
     return object;
   };

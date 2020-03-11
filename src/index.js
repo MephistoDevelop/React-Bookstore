@@ -37,7 +37,7 @@ const initialState = {
     {
       id: newID(),
       title: 'Im Watching you',
-      category: 'Actionclear',
+      category: 'Action',
     },
   ],
 };
