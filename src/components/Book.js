@@ -4,7 +4,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
 import { deleteBook } from '../actions/actions';
-
+import ReadProgress from './ReadProgress';
 
 const Book = (props) => {
   const {
@@ -13,14 +13,14 @@ const Book = (props) => {
 
   return (
     <div className="td-container">
-      <table>
-        <td>{id}</td>
-        <td>{title}</td>
-        <td>{category}</td>
-        <td>
-          <input className="btn" type="button" name={`bookid${id}`} value="Delete" onClick={() => deleteBook(id)} />
-        </td>
-      </table>
+      <div className="content">
+        <p>{id}</p>
+        <p>{title}</p>
+        <p>{category}</p>
+      </div>
+      <ReadProgress />
+      <div className="btn"><input className="btn" type="button" name={`bookid${id}`} value="Delete" onClick={() => deleteBook(id)} /></div>
+
     </div>
   );
 };

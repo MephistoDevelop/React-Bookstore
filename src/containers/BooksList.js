@@ -28,15 +28,6 @@ const BooksList = (props) => {
 
   return (
     <div id="table-container">
-
-      <table>
-        <tr>
-          <th>Book ID</th>
-          <th>Title</th>
-          <th>Category</th>
-          <th>Action</th>
-        </tr>
-      </table>
       {mapProps()}
     </div>
   );
