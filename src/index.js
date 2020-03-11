@@ -8,6 +8,7 @@ import ReactDOM from 'react-dom';
 import App from './components/App';
 import './assets/styles/styles.css';
 import reducer from './reducers/index';
+import Navbar from './components/Navbar';
 
 
 const newID = () => parseInt(Math.random() * 100, 10);
@@ -46,6 +47,7 @@ const store = createStore(reducer, initialState, devToolsEnhancer(initialState))
 
 ReactDOM.render(
   <Provider store={store}>
+    <Navbar />
     <App />
   </Provider>,
   document.getElementById('root'),

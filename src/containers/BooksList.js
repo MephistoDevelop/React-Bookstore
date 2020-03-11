@@ -9,7 +9,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
 import Book from '../components/Book';
-import CategoryFilter from './CategoryFilter';
+
 
 const BooksList = (props) => {
   const { books, filter } = props;
@@ -28,7 +28,7 @@ const BooksList = (props) => {
 
   return (
     <div id="table-container">
-      <CategoryFilter />
+
       <table>
         <tr>
           <th>Book ID</th>
