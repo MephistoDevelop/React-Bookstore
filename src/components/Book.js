@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable arrow-parens */
 import React from 'react';
@@ -12,7 +13,7 @@ const Book = (props) => {
   } = props;
 
   const changeProgress = () => {
-    const stringifyObject = require('stringify-object');
+    // const stringifyObject = require('stringify-object');
     const createKeyframe = require('create-keyframe');
     const insertCSS = require('insert-styles');
 
