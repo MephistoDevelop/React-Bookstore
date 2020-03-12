@@ -16,7 +16,6 @@ const BooksList = (props) => {
 
   const mapProps = () => {
     const object = [];
-    console.log(`Im Books: ${JSON.stringify(books)}`);
     for (const key in books) {
       const item = books[key];
       if (item.category == filter) {

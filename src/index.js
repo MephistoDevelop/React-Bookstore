@@ -17,9 +17,7 @@ let booksFeched = [];
 const xhr = new XMLHttpRequest();
 
 const getResponse = () => {
-  // window.alert('completed');
   booksFeched = (xhr.responseText);
-
   return booksFeched;
 };
 
@@ -29,7 +27,6 @@ xhr.open('GET', 'http://127.0.0.1:3000/books', true);
 // send the request
 xhr.send(null);
 
-console.log(`Y: ${getResponse()}`);
 const initialState = {
   categories: [
     'All',
@@ -44,9 +41,21 @@ const initialState = {
   filter: ['All'],
   books: [{
     title: 'The Lord of he Rings',
-    author: 'J.K. Rowling',
+    author: 'J.R.R. Tolkien',
+    category: 'Sci-fi',
+    read_percent: '45',
+  },
+  {
+    title: 'Carrie',
+    author: 'Stephen King',
     category: 'Action',
-    read_percent: '0',
+    read_percent: '30',
+  },
+  {
+    title: 'Learning React: Moder Patherns',
+    author: 'Eve Porcello, Alex Banks ',
+    category: 'Learning',
+    read_percent: '90',
   }],
 };
 
