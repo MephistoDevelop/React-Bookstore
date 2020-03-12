@@ -59,7 +59,7 @@ class BooksForm extends React.Component {
       // formData.append('author', author);
       // formData.append('read_percent', '160');
       const json = {
-        title, category, author, read_percent: '300',
+        title, category, author, read_percent: '0',
       };
 
       // formData.append();
@@ -72,18 +72,7 @@ class BooksForm extends React.Component {
       xhr.send(JSON.stringify(json));
 
       console.log(xhr.responseText);
-      // const xhr = new XMLHttpRequest();
-      // let httpResult = [];
 
-      // xhr.addEventListener('load', () => {
-      //   // update the state of the component with the result here
-      //   httpResult = xhr.response;
-      //   console.log(`Im HTTP Request: ${httpResult}`);
-      // });
-      // // open the request with the verb and the url
-      // xhr.open('GET', 'http://127.0.0.1:3000/books');
-      // // send the request
-      // xhr.send();
       const newBook = {
         id: newID(),
         title,
@@ -116,15 +105,15 @@ class BooksForm extends React.Component {
         <form>
           <div id="form-title-container">
             <input
-              id="form-input"
+              id="form-input-title"
               type="text"
               value={title}
               name={title}
               onChange={this.handleChange}
-              placeholder="Title example: Lords of the Rings"
+              placeholder="Book Title"
             />
             <input
-              id="form-input"
+              id="form-input-author"
               type="text"
               value={author}
               name={author}
@@ -140,7 +129,7 @@ class BooksForm extends React.Component {
               ))}
               ;
             </select>
-            <input id="form-btn" type="button" value="Submit" onClick={this.handleSubmit} />
+            <input id="form-btn" type="button" value="ADD BOOK" onClick={this.handleSubmit} />
           </div>
         </form>
       </div>

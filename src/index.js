@@ -13,6 +13,23 @@ import BooksForm from './containers/BooksForm';
 
 
 const newID = () => parseInt(Math.random() * 100, 10);
+let booksFeched = [];
+const xhr = new XMLHttpRequest();
+
+const getResponse = () => {
+  // window.alert('completed');
+  booksFeched = (xhr.responseText);
+
+  return booksFeched;
+};
+
+xhr.onreadystatechange = getResponse;
+// open the request with the verb and the url
+xhr.open('GET', 'http://127.0.0.1:3000/books', true);
+// send the request
+xhr.send(null);
+
+console.log(`Y: ${getResponse()}`);
 const initialState = {
   categories: [
     'All',
@@ -25,26 +42,7 @@ const initialState = {
     'Sci-Fi',
   ],
   filter: ['All'],
-  books: [
-    {
-      id: 1,
-      title: 'The lord of the rings',
-      category: 'Sci-Fi',
-      author: 'J.R.R. Tolkien',
-    },
-    {
-      id: newID(),
-      title: 'Nightmare on Stret Elmer',
-      category: 'Horror',
-      author: 'Wes Craven',
-    },
-    {
-      id: newID(),
-      title: 'Harry Potter',
-      category: 'Action',
-      author: 'J.K. Rowling',
-    },
-  ],
+  books: booksFeched,
 };
 
 const store = createStore(reducer, initialState, devToolsEnhancer(initialState));

@@ -36,6 +36,7 @@ class CategoryFilter extends React.Component {
     return (
       <div>
         <select id="cbx-category" onChange={((e) => this.handleChange(e))}>
+          <option>Categories</option>
           {this.options()}
         </select>
       </div>
