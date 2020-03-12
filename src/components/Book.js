@@ -17,8 +17,11 @@ const Book = (props) => {
         <p className="category-text">{category}</p>
         <p className="title-text">{title}</p>
         <p className="author-text">{author}</p>
-
-
+        <div className="btn-actions-container">
+          <buton className="btn-book" type="button">Comments</buton>
+          <buton className="btn-book btn-edit" type="button">Edit</buton>
+          <buton className="btn-book" type="button">Remove</buton>
+        </div>
       </div>
       <ReadProgress />
       <div className="btn-container">
