@@ -215,13 +215,14 @@ justify-content: center;
   background-color: #0290ff;
 }
 #form-title{
+  padding: 2% 3%;
+  border-top: 2px solid rgba(150,150,150,0.5);
   color:
 gray;
 font-size: 18px;
 margin-top: 2%;
-padding-left: 3%;
 font-weight: 700;
-width: 254px;
+width: 100%;
 
 height: 24px;
 
