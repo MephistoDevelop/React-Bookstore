@@ -25,7 +25,6 @@ const Book = (props) => {
       100: { transform: 'rotate(180deg)' },
     };
 
-
     const keyframeObj = createKeyframe(cssKeyframe);
     insertCSS(keyframeObj.css, { id: 'animaton-tutorial-keyframe' });
   };

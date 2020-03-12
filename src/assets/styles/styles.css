@@ -565,3 +565,18 @@ justify-content: center;
     color: #ffffff;
     margin-bottom: 2%;;
 }
+@media screen and (-webkit-min-device-pixel-ratio:0)
+  and (min-resolution:.001dpcm) {
+    #main-title{
+      margin-left: 8%;
+    }
+    #profile-icon-container{
+      flex-direction: row-reverse;
+    }
+    .td-container{
+      width: 100%;
+    }
+    [type=button]{
+      -webkit-appearance: none;
+    }
+}
