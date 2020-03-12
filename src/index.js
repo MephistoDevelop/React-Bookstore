@@ -42,7 +42,12 @@ const initialState = {
     'Sci-Fi',
   ],
   filter: ['All'],
-  books: booksFeched,
+  books: [{
+    title: 'The Lord of he Rings',
+    author: 'J.K. Rowling',
+    category: 'Action',
+    read_percent: '0',
+  }],
 };
 
 const store = createStore(reducer, initialState, devToolsEnhancer(initialState));

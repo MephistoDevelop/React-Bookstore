@@ -9,9 +9,13 @@ const ReadProgress = () => (
       <span className="progress-right">
         <span className="progress-bar" />
       </span>
+
+    </div>
+    <div className="col">
       <div className="progress-value">0%</div>
       <div className="progress-value-completed">Completed </div>
     </div>
+
   </div>
 );
 export default ReadProgress;
