@@ -70,9 +70,6 @@ class BooksForm extends React.Component {
       xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
       // send the request
       xhr.send(JSON.stringify(json));
-
-      console.log(xhr.responseText);
-
       const newBook = {
         id: newID(),
         title,
