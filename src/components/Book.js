@@ -38,14 +38,13 @@ const Book = (props) => {
         <div className="btn-actions-container">
           <buton className="btn-book" type="button">Comments</buton>
           <buton className="btn-book btn-edit" type="button">Edit</buton>
-          <buton className="btn-book" type="button">Remove</buton>
+          <buton className="btn-book" type="button" name={`bookid${id}`} value="Delete" onClick={() => deleteBook(id)}>Remove</buton>
         </div>
       </div>
       <ReadProgress />
       <div id="update-container">
         <div className="chapter-current">Current Chapter</div>
         <div className="chapter-title">Chapter 1</div>
-        <input className="btn-update" type="button" name={`bookid${id}`} value="Delete" onClick={() => deleteBook(id)} />
         <input type="button" id="btn-animate" className="btn-update" onClick={changeProgress()} value="Update Progress" />
       </div>
     </div>

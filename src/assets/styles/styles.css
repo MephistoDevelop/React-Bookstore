@@ -155,36 +155,23 @@ justify-content: center;
 }
 #cbx-category{
   width: 165px;
-
-  height: 16px;
-
+  height: 30px;
   opacity: 0.5;
-
   font-family: Montserrat;
-
   font-size: 13px;
-
   font-weight: normal;
-
   font-stretch: normal;
-
   font-style: normal;
-
   line-height: normal;
-
   letter-spacing: 1.9px;
-
   color: #121212;
 }
 #cbx-category-form{
   width: 285px;
-
   height: 45px;
-color: gray;
+  color: gray;
   border-radius: 4px;
-
   border: solid 1px #e8e8e8;
-
   background-color: #ffffff;
 }
 #form-input-author{
@@ -192,26 +179,15 @@ color: gray;
 }
 [input] #form-input-title{
   width: 76px;
-
   height: 19px;
-
   font-family: Montserrat;
-
   font-size: 16px;
-
   font-weight: normal;
-
   font-stretch: normal;
-
   font-style: normal;
-
   line-height: normal;
-
   letter-spacing: -0.15px;
-
   color: #c4c4c4;
-
-
 }
 #form-input-title{
   width: 664px;
