@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { devToolsEnhancer } from 'redux-devtools-extension';
 import ReactDOM from 'react-dom';
+import axios from 'axios';
 import App from './components/App';
 import './assets/styles/styles.css';
 import reducer from './reducers/index';
@@ -13,23 +14,14 @@ import BooksForm from './containers/BooksForm';
 
 
 const newID = () => parseInt(Math.random() * 100, 10);
-let booksFeched = [];
-const xhr = new XMLHttpRequest();
+const booksFetched = [];
 
-const getResponse = () => {
-  // window.alert('completed');
-  booksFeched = (xhr.responseText);
-
-  return booksFeched;
-};
-
-xhr.onreadystatechange = getResponse;
-// open the request with the verb and the url
-xhr.open('GET', 'http://127.0.0.1:3000/books', true);
-// send the request
-xhr.send(null);
-
-console.log(`Y: ${getResponse()}`);
+async function getDataAxios() {
+  const response = await axios.get('http://localhost:3000/books',
+    { headers: { 'Content-Type': 'application/json' } });
+  for (const obj in response.data) booksFetched.push(response.data[obj]);
+  // /*  */console.log(`Im Axios Request:${JSON.stringify(response.data)}`);
+}
 const initialState = {
   categories: [
     'All',
@@ -42,23 +34,24 @@ const initialState = {
     'Sci-Fi',
   ],
   filter: ['All'],
-  books: [{
-    title: 'The Lord of he Rings',
-    author: 'J.K. Rowling',
-    category: 'Action',
-    read_percent: '0',
-  }],
+  books: [],
 };
+(() => {
+  getDataAxios().then(() => {
+    initialState.books = [...booksFetched];
+    const store = createStore(reducer, initialState, devToolsEnhancer(initialState));
+    console.log(`Im iniitalState ${JSON.stringify(initialState)}`);
 
-const store = createStore(reducer, initialState, devToolsEnhancer(initialState));
+    ReactDOM.render(
+      <Provider store={store}>
+        <Navbar />
+        <App />
+        <BooksForm />
+      </Provider>,
+      document.getElementById('root'),
+    );
+  });
+})();
 
-ReactDOM.render(
-  <Provider store={store}>
-    <Navbar />
-    <App />
-    <BooksForm />
-  </Provider>,
-  document.getElementById('root'),
-);
 
 export default newID;

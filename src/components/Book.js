@@ -12,23 +12,6 @@ const Book = (props) => {
     id, title, category, deleteBook, author,
   } = props;
 
-  const changeProgress = () => {
-    // const stringifyObject = require('stringify-object');
-    const createKeyframe = require('create-keyframe');
-    const insertCSS = require('insert-styles');
-
-
-    const cssKeyframe = {
-      0: {
-        transform: 'rotate(0deg)',
-      },
-      100: { transform: 'rotate(180deg)' },
-    };
-
-    const keyframeObj = createKeyframe(cssKeyframe);
-    insertCSS(keyframeObj.css, { id: 'animaton-tutorial-keyframe' });
-  };
-
   return (
     <div className="td-container">
       <div className="content">
@@ -45,7 +28,7 @@ const Book = (props) => {
       <div id="update-container">
         <div className="chapter-current">Current Chapter</div>
         <div className="chapter-title">Chapter 1</div>
-        <input type="button" id="btn-animate" className="btn-update" onClick={changeProgress()} value="Update Progress" />
+        <input type="button" id="btn-animate" className="btn-update" value="Update Progress" />
       </div>
     </div>
   );
