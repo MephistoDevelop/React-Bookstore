@@ -8,9 +8,25 @@ import ReactDOM from 'react-dom';
 import App from './components/App';
 import './assets/styles/styles.css';
 import reducer from './reducers/index';
+import Navbar from './components/Navbar';
+import BooksForm from './containers/BooksForm';
 
 
 const newID = () => parseInt(Math.random() * 100, 10);
+let booksFeched = [];
+const xhr = new XMLHttpRequest();
+
+const getResponse = () => {
+  booksFeched = (xhr.responseText);
+  return booksFeched;
+};
+
+xhr.onreadystatechange = getResponse;
+// open the request with the verb and the url
+xhr.open('GET', 'http://127.0.0.1:3000/books', true);
+// send the request
+xhr.send(null);
+
 const initialState = {
   categories: [
     'All',
@@ -23,30 +39,36 @@ const initialState = {
     'Sci-Fi',
   ],
   filter: ['All'],
-  books: [
-    {
-      id: 1,
-      title: 'The lord of the rings',
-      category: 'Sci-Fi',
-    },
-    {
-      id: newID(),
-      title: 'Nightmare on Stret Elmer',
-      category: 'Horror',
-    },
-    {
-      id: newID(),
-      title: 'Im Watching you',
-      category: 'Action',
-    },
-  ],
+  books: [{
+    id: newID(),
+    title: 'The Lord of he Rings',
+    author: 'J.R.R. Tolkien',
+    category: 'Sci-fi',
+    read_percent: '45',
+  },
+  {
+    id: newID(),
+    title: 'Carrie',
+    author: 'Stephen King',
+    category: 'Action',
+    read_percent: '30',
+  },
+  {
+    id: newID(),
+    title: 'Learning React',
+    author: 'Eve Porcello, Alex Banks ',
+    category: 'Learning',
+    read_percent: '90',
+  }],
 };
 
 const store = createStore(reducer, initialState, devToolsEnhancer(initialState));
 
 ReactDOM.render(
   <Provider store={store}>
+    <Navbar />
     <App />
+    <BooksForm />
   </Provider>,
   document.getElementById('root'),
 );

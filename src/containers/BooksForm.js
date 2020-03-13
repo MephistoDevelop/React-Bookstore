@@ -27,54 +27,97 @@ class BooksForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleChangeSelect = this.handleChangeSelect.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChangeAuthor = this.handleChangeAuthor.bind(this);
+  }
+
+  handleChangeAuthor(event) {
+    const { value } = event.target;
+    this.setState({
+      author: value,
+    });
   }
 
   handleChange(event) {
     const { value } = event.target;
-    this.setState({
-      title: value,
-    });
+    if (value !== '') {
+      this.setState({
+        title: value,
+      });
+    }
   }
 
   handleSubmit() {
-    const { title, category } = this.state;
+    const { title, category, author } = this.state;
     const { createBook } = this.props;
-    const newBook = {
-      id: newID(),
-      title,
-      category,
-    };
 
-    createBook(newBook);
+    if (title !== '' && category !== '' && author !== '') {
+      const url = 'http://localhost:3000/books';
+      // const formData = new FormData();
+
+      // formData.append('title', title);
+      // formData.append('category', category);
+      // formData.append('author', author);
+      // formData.append('read_percent', '160');
+      const json = {
+        title, category, author, read_percent: '0',
+      };
+
+      // formData.append();
+      const xhr = new XMLHttpRequest();
+
+      // open the request with the verb and the url
+      xhr.open('POST', url);
+      xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+      // send the request
+      xhr.send(JSON.stringify(json));
+      const newBook = {
+        id: newID(),
+        title,
+        author,
+        category,
+      };
+      createBook(newBook);
+    }
     this.setState({
       title: '',
       category: '',
+      author: '',
     });
   }
 
   handleChangeSelect() {
-    const select = document.getElementById('cbx-category');
+    const select = document.getElementById('cbx-category-form');
     const name = select.options[select.selectedIndex].text;
+
     this.setState({
       category: name,
     });
   }
 
   render() {
-    const { title, categories } = this.state;
+    const { title, categories, author } = this.state;
     return (
-      <div>
+      <div id="form-container">
+        <p id="form-title">ADD NEW BOOK</p>
         <form>
           <div id="form-title-container">
             <input
+              id="form-input-title"
               type="text"
               value={title}
               name={title}
               onChange={this.handleChange}
-              placeholder="Title example: Lords of the Rings"
+              placeholder="Book Title"
             />
-            <br />
-            <select onChange={this.handleChangeSelect} id="cbx-category">
+            <input
+              id="form-input-author"
+              type="text"
+              value={author}
+              name={author}
+              onChange={this.handleChangeAuthor}
+              placeholder="Author"
+            />
+            <select className="form-cbx" onChange={this.handleChangeSelect} id="cbx-category-form">
               <option>Category</option>
               {categories.map((item) => (
                 <option key={item} value={item}>
@@ -83,7 +126,7 @@ class BooksForm extends React.Component {
               ))}
               ;
             </select>
-            <input type="button" value="Submit" onClick={this.handleSubmit} />
+            <input id="form-btn" type="button" value="ADD BOOK" onClick={this.handleSubmit} />
           </div>
         </form>
       </div>

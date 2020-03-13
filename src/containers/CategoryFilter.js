@@ -1,3 +1,4 @@
+/* eslint-disable react/forbid-prop-types */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable arrow-parens */
 import React from 'react';
@@ -35,6 +36,7 @@ class CategoryFilter extends React.Component {
     return (
       <div>
         <select id="cbx-category" onChange={((e) => this.handleChange(e))}>
+          <option>Categories</option>
           {this.options()}
         </select>
       </div>
@@ -52,7 +54,7 @@ const mapDistpatchToProps = (dispatch) => ({
   changeFilter: (category) => dispatch(changeCategory(category)),
 });
 CategoryFilter.propTypes = {
-  categories: propTypes.string.isRequired,
+  categories: propTypes.array.isRequired,
   changeFilter: propTypes.func.isRequired,
 };
 

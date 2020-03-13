@@ -9,18 +9,19 @@ import React from 'react';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
 import Book from '../components/Book';
-import CategoryFilter from './CategoryFilter';
+
 
 const BooksList = (props) => {
   const { books, filter } = props;
+
   const mapProps = () => {
     const object = [];
     for (const key in books) {
       const item = books[key];
       if (item.category == filter) {
-        object.push(<Book key={item} id={item.id} title={item.title} category={item.category} />);
+        object.push(<Book id={item.id} title={item.title} category={item.category} author={item.author} />);
       } else if (filter == 'All') {
-        object.push(<Book key={item} id={item.id} title={item.title} category={item.category} />);
+        object.push(<Book id={item.id} title={item.title} category={item.category} author={item.author} />);
       }
     }
     return object;
@@ -28,15 +29,6 @@ const BooksList = (props) => {
 
   return (
     <div id="table-container">
-      <CategoryFilter />
-      <table>
-        <tr>
-          <th>Book ID</th>
-          <th>Title</th>
-          <th>Category</th>
-          <th>Action</th>
-        </tr>
-      </table>
       {mapProps()}
     </div>
   );
@@ -49,7 +41,7 @@ const mapStateToProps = (state) => ({
 
 
 BooksList.propTypes = {
-  books: propTypes.object.isRequired,
+  books: propTypes.array.isRequired,
   filter: propTypes.array.isRequired,
 };
 export default connect(mapStateToProps)(BooksList);
