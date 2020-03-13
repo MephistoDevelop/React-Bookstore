@@ -1,8 +1,10 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable import/no-cycle */
 /* eslint-disable react/forbid-prop-types */
 /* eslint-disable arrow-parens */
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
+import axios from 'axios';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
 import newID from '../index';
@@ -52,27 +54,10 @@ class BooksForm extends React.Component {
 
     if (title !== '' && category !== '' && author !== '') {
       const url = 'http://localhost:3000/books';
-      // const formData = new FormData();
 
-      // formData.append('title', title);
-      // formData.append('category', category);
-      // formData.append('author', author);
-      // formData.append('read_percent', '160');
-      const json = {
-        title, category, author, read_percent: '0',
-      };
-
-      // formData.append();
-      const xhr = new XMLHttpRequest();
-
-      // open the request with the verb and the url
-      xhr.open('POST', url);
-      xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-      // send the request
-      xhr.send(JSON.stringify(json));
-
-      console.log(xhr.responseText);
-
+      const response = axios.post(url, {
+        id: newID(), title, category, author, read_percent: '0',
+      });
       const newBook = {
         id: newID(),
         title,

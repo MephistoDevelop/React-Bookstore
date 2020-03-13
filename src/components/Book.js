@@ -2,6 +2,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable arrow-parens */
 import React from 'react';
+import axios from 'axios';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
 import { deleteBook } from '../actions/actions';
@@ -12,6 +13,10 @@ const Book = (props) => {
     id, title, category, deleteBook, author,
   } = props;
 
+  const deleteBookAPI = () => {
+    axios.delete(`http://localhost:3000/books/${id}`, { headers: { 'Access-Control-Allow-Origin': '*' }, params: { } });
+    console.log('Funka?');
+  };
   return (
     <div className="td-container">
       <div className="content">
@@ -21,7 +26,18 @@ const Book = (props) => {
         <div className="btn-actions-container">
           <buton className="btn-book" type="button">Comments</buton>
           <buton className="btn-book btn-edit" type="button">Edit</buton>
-          <buton className="btn-book" type="button" name={`bookid${id}`} value="Delete" onClick={() => deleteBook(id)}>Remove</buton>
+          <buton
+            className="btn-book"
+            type="button"
+            name={`bookid${id}`}
+            value="Delete"
+            onClick={() => {
+              deleteBook(id);
+              deleteBookAPI();
+            }}
+          >
+Remove
+          </buton>
         </div>
       </div>
       <ReadProgress />

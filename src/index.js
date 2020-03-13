@@ -1,3 +1,5 @@
+/* eslint-disable guard-for-in */
+/* eslint-disable no-restricted-syntax */
 /* eslint-disable import/no-cycle */
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
@@ -20,7 +22,6 @@ async function getDataAxios() {
   const response = await axios.get('http://localhost:3000/books',
     { headers: { 'Content-Type': 'application/json' } });
   for (const obj in response.data) booksFetched.push(response.data[obj]);
-  // /*  */console.log(`Im Axios Request:${JSON.stringify(response.data)}`);
 }
 const initialState = {
   categories: [
@@ -40,7 +41,6 @@ const initialState = {
   getDataAxios().then(() => {
     initialState.books = [...booksFetched];
     const store = createStore(reducer, initialState, devToolsEnhancer(initialState));
-    console.log(`Im iniitalState ${JSON.stringify(initialState)}`);
 
     ReactDOM.render(
       <Provider store={store}>
@@ -52,6 +52,5 @@ const initialState = {
     );
   });
 })();
-
 
 export default newID;
