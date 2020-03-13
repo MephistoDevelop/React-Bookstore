@@ -1,4 +1,4 @@
-# React Book Store
+# React BookStore CMS
 
 > Project taked from Microverse React & Redux Curriculum
 
@@ -6,20 +6,17 @@
 
 ![screenshot](./)
 
-> React Book Store project.
+This is a application to save and organize your books, by adding or deleting books.
 
-## Built With Javascript
-
-Technologies used:
+## Built With Javascript, React Library
 
 - Html,Css,JavaScript
-- React Library
+- ReactJS
 - Node.js
-- React-DOM
-- React-Create-App
-- npm manager
-- ES6
 - Redux
+- React-Redux
+- JEST
+- Enzime
 
 ## Live Demo
 
@@ -29,8 +26,7 @@ Technologies used:
 
 ### Prerequisites
 
--before to run this project you will need to install before webpack and configure the live server on your webpac.config file. you can check more about it on this [page](https://webpack.js.org/guides/installation/) .
-[npm install and config: ](https://docs.npmjs.com/cli/install)
+-Before to run this project we need to install redux and react-redux library with `$> npm install`
 
 ### Setup
 
