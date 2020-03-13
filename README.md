@@ -22,12 +22,14 @@ This is a application to save and organize your books, by adding or deleting boo
 ## Live Demo
 
 [Live Demo Link](https://bookstore-mephistodevelop.herokuapp.com/)
+[Ruby on Rails API](https://mephistodevelop-bookstore-api.herokuapp.com/books)
 
 ## Getting Started
 
 ### Prerequisites
 
--Before to run this project we need to install redux and react-redux library with `$> npm install`
+-Before to run this project we need to install npm dependencies with 
+```$> npm install```
 
 ### Setup
 
@@ -37,6 +39,7 @@ To use this repo on your compuer you first need to run this commands:
 npm install eslint eslint-config-airbnb --save-dev
 
 npx eslint --init
+
 ```
 
 ### Deployment
@@ -75,6 +78,7 @@ after you will need to enter to [Stickler Page](https://stickler-ci.com/) and ac
 **\*\***\*\*\*\***\*\*** Deploy to Heroku with CLI **\*\***\*\*\*\***\*\***
 
 ```
+
 git add .
 git commit -m "Start with create-react-app"
 git push heroku master
@@ -84,6 +88,7 @@ you need to change the $BRANCH_NAME, by your working branch.
 git push heroku $BRANCH_NAME:master
 
 heroku open
+
 ```
 
 ## Authors
