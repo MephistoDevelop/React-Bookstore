@@ -8,15 +8,16 @@
 
 This is a application to save and organize your books, by adding or deleting books.
 
-## Built With Javascript, React Library
+## Built With React Library
 
 - Html,Css,JavaScript
 - ReactJS
 - Node.js
 - Redux
 - React-Redux
-- JEST
-- Enzime
+- axios Http requester
+- Heroku
+- Ruby On Rails Backend
 
 ## Live Demo
 
