@@ -40,19 +40,22 @@ const initialState = {
   ],
   filter: ['All'],
   books: [{
+    id: newID(),
     title: 'The Lord of he Rings',
     author: 'J.R.R. Tolkien',
     category: 'Sci-fi',
     read_percent: '45',
   },
   {
+    id: newID(),
     title: 'Carrie',
     author: 'Stephen King',
     category: 'Action',
     read_percent: '30',
   },
   {
-    title: 'Learning React: Moder Patherns',
+    id: newID(),
+    title: 'Learning React',
     author: 'Eve Porcello, Alex Banks ',
     category: 'Learning',
     read_percent: '90',
