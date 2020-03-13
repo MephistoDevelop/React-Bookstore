@@ -14,8 +14,7 @@ const Book = (props) => {
   } = props;
 
   const deleteBookAPI = () => {
-    axios.delete(`http://localhost:3000/books/${id}`, { headers: { 'Access-Control-Allow-Origin': '*' }, params: { } });
-    console.log('Funka?');
+    axios.delete(`https://mephistodevelop-bookstore-api.herokuapp.com/books/${id}`, { headers: { 'Access-Control-Allow-Origin': '*' }, params: { } });
   };
   return (
     <div className="td-container">

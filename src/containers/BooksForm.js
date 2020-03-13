@@ -53,7 +53,7 @@ class BooksForm extends React.Component {
     const { createBook } = this.props;
 
     if (title !== '' && category !== '' && author !== '') {
-      const url = 'http://localhost:3000/books';
+      const url = 'https://mephistodevelop-bookstore-api.herokuapp.com/books';
 
       const response = axios.post(url, {
         id: newID(), title, category, author, read_percent: '0',
