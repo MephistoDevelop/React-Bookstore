@@ -20,9 +20,10 @@ const Book = (props) => {
 
   const bookImage = () => {
     if (urlImage !== '') {
-      return (<img className="bg" src="https://static.thenounproject.com/png/132226-200.png" />);
+      console.log(`Im url  Image:${urlImage}`);
+      return <img className="bg" style={{ backgroundImage: `url(${urlImage})` }} />;
     }
-    return (<img className="bg" src="https://images.pexels.com/photos/373892/pexels-photo-373892.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb" />);
+    return (<img className="bg" src="https://static.thenounproject.com/png/132226-200.png" />);
   };
 
 
@@ -62,7 +63,10 @@ Remove
       </div>
       <div id="comments-container">
         Comments:
-
+        <form>
+          <input type="text" placeHolder="Comment" />
+          <input type="button" value="Comment" />
+        </form>
       </div>
     </div>
   );

@@ -19,9 +19,9 @@ const BooksList = (props) => {
     for (const key in books) {
       const item = books[key];
       if (item.category == filter) {
-        object.push(<Book id={item.id} title={item.title} category={item.category} author={item.author} />);
+        object.push(<Book id={item.id} title={item.title} category={item.category} author={item.author} readProgress={item.readProgress} urlImage={item.urlImage} />);
       } else if (filter == 'All') {
-        object.push(<Book id={item.id} title={item.title} category={item.category} author={item.author} />);
+        object.push(<Book id={item.id} title={item.title} category={item.category} author={item.author} readProgress={item.readProgress} urlImage={item.urlImage} />);
       }
     }
     return object;
