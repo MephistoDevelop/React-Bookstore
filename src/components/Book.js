@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable global-require */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable arrow-parens */
@@ -10,15 +11,27 @@ import ReadProgress from './ReadProgress';
 
 const Book = (props) => {
   const {
-    id, title, category, deleteBook, author,
+    id, title, category, deleteBook, author, urlImage,
   } = props;
 
   const deleteBookAPI = () => {
     axios.delete(`https://mephistodevelop-bookstore-api.herokuapp.com/books/${id}`, { headers: { 'Access-Control-Allow-Origin': '*' }, params: { } });
   };
+
+  const bookImage = () => {
+    if (urlImage !== '') {
+      return (<img className="bg" src="https://static.thenounproject.com/png/132226-200.png" />);
+    }
+    return (<img className="bg" src="https://images.pexels.com/photos/373892/pexels-photo-373892.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb" />);
+  };
+
+
   return (
     <div className="td-container">
       <div id="content-container">
+        <div className="image-container">
+          {bookImage()}
+        </div>
         <div className="content">
           <p className="category-text">{category}</p>
           <p className="title-text">{title}</p>

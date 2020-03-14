@@ -19,7 +19,7 @@ const newID = () => parseInt(Math.random() * 100, 10);
 const booksFetched = [];
 
 async function getDataAxios() {
-  const response = await axios.get('https://mephistodevelop-bookstore-api.herokuapp.com/books',
+  const response = await axios.get('http://localhost:3000/books',
     { headers: { 'Content-Type': 'application/json' } });
   for (const obj in response.data) booksFetched.push(response.data[obj]);
 }
