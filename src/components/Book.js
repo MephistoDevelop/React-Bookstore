@@ -18,32 +18,38 @@ const Book = (props) => {
   };
   return (
     <div className="td-container">
-      <div className="content">
-        <p className="category-text">{category}</p>
-        <p className="title-text">{title}</p>
-        <p className="author-text">{author}</p>
-        <div className="btn-actions-container">
-          <buton className="btn-book" type="button">Comments</buton>
-          <buton className="btn-book btn-edit" type="button">Edit</buton>
-          <buton
-            className="btn-book"
-            type="button"
-            name={`bookid${id}`}
-            value="Delete"
-            onClick={() => {
-              deleteBook(id);
-              deleteBookAPI();
-            }}
-          >
+      <div id="content-container">
+        <div className="content">
+          <p className="category-text">{category}</p>
+          <p className="title-text">{title}</p>
+          <p className="author-text">{author}</p>
+          <div className="btn-actions-container">
+            <buton className="btn-book" type="button">Comments</buton>
+            <buton className="btn-book btn-edit" type="button">Edit</buton>
+            <buton
+              className="btn-book"
+              type="button"
+              name={`bookid${id}`}
+              value="Delete"
+              onClick={() => {
+                deleteBook(id);
+                deleteBookAPI();
+              }}
+            >
 Remove
-          </buton>
+            </buton>
+          </div>
+        </div>
+        <ReadProgress />
+        <div id="update-container">
+          <div className="chapter-current">Current Chapter</div>
+          <div className="chapter-title">Chapter 1</div>
+          <input type="button" id="btn-animate" className="btn-update" value="Update Progress" />
         </div>
       </div>
-      <ReadProgress />
-      <div id="update-container">
-        <div className="chapter-current">Current Chapter</div>
-        <div className="chapter-title">Chapter 1</div>
-        <input type="button" id="btn-animate" className="btn-update" value="Update Progress" />
+      <div id="comments-container">
+        Comments:
+
       </div>
     </div>
   );
